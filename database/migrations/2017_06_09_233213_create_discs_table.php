@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSchijfTable extends Migration {
+class CreateDiscsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateSchijfTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('schijf', function(Blueprint $table)
+		Schema::create('discs', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-            $table->timestamps();
+			$table->timestamps();
 			$table->string('naam', 64)->unique('idx_schijf_naam');
 			$table->integer('capaciteit')->nullable();
 			$table->integer('beschikbaar')->nullable();
@@ -31,7 +31,7 @@ class CreateSchijfTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('schijf');
+		Schema::drop('discs');
 	}
 
 }

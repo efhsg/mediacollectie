@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateBestandstypeTable extends Migration {
+class CreateFiletypesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateBestandstypeTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('bestandstype', function(Blueprint $table)
+		Schema::create('filetypes', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-            $table->timestamps();
+			$table->timestamps();
 			$table->string('naam', 12)->unique('idx_bestandstype_naam');
 		});
 	}
@@ -28,7 +28,7 @@ class CreateBestandstypeTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('bestandstype');
+		Schema::drop('filetypes');
 	}
 
 }

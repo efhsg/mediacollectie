@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateOndertitelingTable extends Migration {
+class CreateSubtitlesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateOndertitelingTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ondertiteling', function(Blueprint $table)
+		Schema::create('subtitles', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-            $table->timestamps();
+			$table->timestamps();
 			$table->integer('bestand');
 			$table->string('taal', 2);
 			$table->string('soort', 3)->nullable();
@@ -31,7 +31,7 @@ class CreateOndertitelingTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ondertiteling');
+		Schema::drop('subtitles');
 	}
 
 }

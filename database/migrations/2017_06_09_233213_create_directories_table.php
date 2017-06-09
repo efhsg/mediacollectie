@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateDirectoryTable extends Migration {
+class CreateDirectoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateDirectoryTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('directory', function(Blueprint $table)
+		Schema::create('directories', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-            $table->timestamps();
+			$table->timestamps();
 			$table->string('naam', 400)->unique('idx_directory_naam');
 		});
 	}
@@ -28,7 +28,7 @@ class CreateDirectoryTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('directory');
+		Schema::drop('directories');
 	}
 
 }
