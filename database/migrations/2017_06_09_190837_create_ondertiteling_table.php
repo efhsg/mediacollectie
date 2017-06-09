@@ -15,6 +15,7 @@ class CreateOndertitelingTable extends Migration {
 		Schema::create('ondertiteling', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+            $table->timestamps();
 			$table->integer('bestand');
 			$table->string('taal', 2);
 			$table->string('soort', 3)->nullable();

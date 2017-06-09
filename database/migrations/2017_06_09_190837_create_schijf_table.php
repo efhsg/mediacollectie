@@ -15,6 +15,7 @@ class CreateSchijfTable extends Migration {
 		Schema::create('schijf', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+            $table->timestamps();
 			$table->string('naam', 64)->unique('idx_schijf_naam');
 			$table->integer('capaciteit')->nullable();
 			$table->integer('beschikbaar')->nullable();

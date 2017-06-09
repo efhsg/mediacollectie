@@ -15,6 +15,7 @@ class CreateBestandstypeTable extends Migration {
 		Schema::create('bestandstype', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+            $table->timestamps();
 			$table->string('naam', 12)->unique('idx_bestandstype_naam');
 		});
 	}

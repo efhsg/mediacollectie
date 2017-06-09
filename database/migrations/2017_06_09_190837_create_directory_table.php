@@ -15,6 +15,7 @@ class CreateDirectoryTable extends Migration {
 		Schema::create('directory', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+            $table->timestamps();
 			$table->string('naam', 400)->unique('idx_directory_naam');
 		});
 	}

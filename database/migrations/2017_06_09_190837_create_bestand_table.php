@@ -15,6 +15,7 @@ class CreateBestandTable extends Migration {
 		Schema::create('bestand', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+            $table->timestamps();
 			$table->string('naam', 200);
 			$table->string('bestandstype')->nullable()->index('bestandstype');
 			$table->integer('directory')->nullable();
