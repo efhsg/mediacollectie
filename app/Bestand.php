@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Bestand extends Model
 {
@@ -10,7 +11,7 @@ class Bestand extends Model
 
     public function schijfModel()
     {
-        return $this->belongsTo('App\Schijf', 'schijf', 'naam');
+       return $this->belongsTo('App\Schijf', 'schijf', 'naam');
     }
 
     public function mapModel()
