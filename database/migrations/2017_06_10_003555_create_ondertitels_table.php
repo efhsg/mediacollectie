@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateDiscsTable extends Migration {
+class CreateOndertitelsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class CreateDiscsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('discs', function(Blueprint $table)
+		Schema::create('ondertitels', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->timestamps();
-			$table->string('naam', 64)->unique('idx_schijf_naam');
-			$table->integer('capaciteit')->nullable();
-			$table->integer('beschikbaar')->nullable();
-			$table->date('scandatum')->nullable();
+			$table->integer('bestand');
+			$table->string('taal', 2);
+			$table->string('soort', 3)->nullable();
+			$table->unique(['bestand','taal','soort'], 'idx_ondertiteling');
 		});
 	}
 
@@ -31,7 +31,7 @@ class CreateDiscsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('discs');
+		Schema::drop('ondertitels');
 	}
 
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateFilesTable extends Migration {
+class CreateBestandenTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,16 @@ class CreateFilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('files', function(Blueprint $table)
+		Schema::create('bestanden', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->timestamps();
 			$table->string('naam', 200);
 			$table->string('bestandstype')->nullable()->index('bestandstype');
-			$table->integer('directory')->nullable()->index('bestand_ibfk_2');
+			$table->integer('map')->nullable()->index('bestand_ibfk_2');
 			$table->string('schijf', 64)->nullable()->index('schijf');
 			$table->integer('grootte')->nullable();
-			$table->unique(['naam','schijf','directory','bestandstype'], 'idx_bestand');
+			$table->unique(['naam','schijf','map','bestandstype'], 'idx_bestand');
 		});
 	}
 
@@ -33,7 +33,7 @@ class CreateFilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('files');
+		Schema::drop('bestanden');
 	}
 
 }
