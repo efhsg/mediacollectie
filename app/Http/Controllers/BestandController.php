@@ -26,7 +26,7 @@ class BestandController extends Controller
     public function show(int $bestandId) : Response
     {
 
-        dd(Bestand::find($bestandId)->mapModel);
+        dd(Bestand::find($bestandId)->mapModel->naam);
 
         return response()->make(Bestand::find($bestandId));
 

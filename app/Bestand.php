@@ -16,7 +16,7 @@ class Bestand extends Model
 
     public function mapModel()
     {
-        return $this->belongsTo('App\Map', 'bestanden_ibfk_2', 'id');
+        return $this->belongsTo('App\Map', 'map');
     }
 
     public function bestandstypeModel()
