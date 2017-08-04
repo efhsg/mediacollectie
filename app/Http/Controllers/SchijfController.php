@@ -3,30 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Schijf;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class SchijfController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return JsonResponse
-     */
-    public function index(): JsonResponse
+    public function index()
     {
-        return response()->json(Schijf::all());
+        return response()->make(Schijf::all());
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $schijf_id
-     * @return JsonResponse
-     */
-    public function show($schijfId): JsonResponse
+    public function show(Schijf $schijf)
     {
-        return response()->json(Schijf::find($schijfId));
+        return response()->make($schijf);
     }
 
 }

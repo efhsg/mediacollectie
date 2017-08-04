@@ -23,9 +23,8 @@ class BestandstypeController extends Controller
      * @param  \App\Bestand $bestand
      * @return \Illuminate\Http\Response
      */
-    public function show(int $bestandstypeId): Response
+    public function show(Bestandstype $bestandstype): Response
     {
-        return response()->make(Bestandstype::find($bestandstypeId));
-
+        return response()->make($bestandstype);
     }
 }

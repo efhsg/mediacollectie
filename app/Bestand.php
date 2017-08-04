@@ -3,24 +3,36 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Bestand extends Model
 {
+
     protected $table = 'bestanden';
 
-    public function schijfModel()
+    public function schijf()
     {
-       return $this->belongsTo('App\Schijf', 'schijf', 'naam');
+        return $this->belongsTo('App\Schijf', 'schijf', 'naam');
     }
 
-    public function mapModel()
+    public function map()
     {
         return $this->belongsTo('App\Map', 'map');
     }
 
-    public function bestandstypeModel()
+    public function bestandstype()
     {
         return $this->belongsTo('App\Bestandstype', 'bestandstype', 'naam');
     }
+
+
+    public function scopeBestandsnaam($query, $naam)
+    {
+        return $query->where('naam', 'like', '%' . $naam . '%');
+    }
+
+    public function scopeSchijfnaam($query, $schijfNaam)
+    {
+        return $query->where('schijf', 'like', '%' . $schijfNaam . '%');
+    }
+
 }

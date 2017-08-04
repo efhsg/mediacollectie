@@ -24,9 +24,9 @@ class MapController extends Controller
      * @param  \App\Bestand $bestand
      * @return \Illuminate\Http\Response
      */
-    public function show(int $bestandId): Response
+    public function show(Map $map): Response
     {
-        return response()->make(Map::find($bestandId));
+        return response()->make($map);
 
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,8 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::resource('schijven', 'SchijfController', ['only' => ['index', 'show']]);
-    Route::resource('bestanden', 'BestandController', ['only' => ['index', 'show']]);
+    Route::resource('schijven', 'SchijfController',
+        [
+            'only' => ['index', 'show'],
+            'parameters' => ['schijven' => 'schijf']
+        ]);
+    Route::resource('bestanden', 'BestandController',
+        [
+            'only' => ['index', 'show'],
+            'parameters' => ['bestanden' => 'bestand']
+        ]);
     Route::resource('bestandstypes', 'BestandstypeController', ['only' => ['index', 'show']]);
-    Route::resource('mappen', 'MapController', ['only' => ['index', 'show']]);
+    Route::resource('mappen', 'MapController',
+        [
+            'only' => ['index', 'show'],
+            'parameters' => ['mappen' => 'map']
+        ]);
 });
+
