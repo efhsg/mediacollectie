@@ -14,7 +14,7 @@ class Bestand extends Model
         return $this->belongsTo('App\Schijf', 'schijf', 'naam');
     }
 
-    public function map()
+    public function mapModel()
     {
         return $this->belongsTo('App\Map', 'map');
     }

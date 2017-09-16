@@ -13,14 +13,14 @@ class BestandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() : Response
+    public function index(): Response
     {
 
         $input = Input::only('bestandsnaam', 'schijfnaam');
 
         try {
             $bestanden = Bestand::bestandsnaam($input['bestandsnaam'])->schijfnaam($input['schijfnaam'])->get();
-            return response()->make($bestanden);
+            return response()->make($this->formatBestanden($bestanden));
         } catch (\Exception $e) {
             return response()->make(['error' => $e->getMessage()]);
         }
@@ -33,7 +33,7 @@ class BestandController extends Controller
      * @param  \App\Bestand $bestand
      * @return \Illuminate\Http\Response
      */
-    public function show(int $bestandId) : Response
+    public function show(int $bestandId): Response
     {
 
 //        dd(Bestand::find($bestandId)->mapModel->naam);
@@ -41,5 +41,22 @@ class BestandController extends Controller
         return response()->make(Bestand::find($bestandId));
 
     }
+
+    private function formatBestanden($bestanden): array
+    {
+
+        $formatted = [];
+        foreach ($bestanden as $bestand) {
+            $formatted[] = [
+                'id' => $bestand->id,
+                'schijf' => $bestand->schijf,
+                'map' => $bestand->mapModel->naam,
+                'naam' => $bestand->naam,
+                'type' => $bestand->bestandstype,
+            ];
+        }
+        return $formatted;
+    }
+
 
 }

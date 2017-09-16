@@ -189,6 +189,10 @@ return [
         */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        /*
+         * Cors
+         */
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*
