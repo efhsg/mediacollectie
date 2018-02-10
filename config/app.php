@@ -184,15 +184,6 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
 
-        /*
-         * IDE helper
-        */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        /*
-         * Cors
-         */
-        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*
