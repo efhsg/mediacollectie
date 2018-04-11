@@ -27,6 +27,5 @@ class MapController extends Controller
     public function show(Map $map): Response
     {
         return response()->make($map);
-
     }
 }
